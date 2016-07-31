@@ -1,0 +1,8 @@
+.row
+  .col-md-4
+    = simple_form_for(@trip) do |f|
+      = f.input :start_date
+      = f.input :end_date
+      = f.input :destiny_city_name, :input_html => {:maxlength => 40, :size => 40}
+
+      = f.button :submit, class: "btn btn-success"

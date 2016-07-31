@@ -1,0 +1,19 @@
+%nav{class: "navbar navbar-default", style: "position: relative !important"}
+  .container-fluid
+    .navbar-header
+      %button{ typ: "button", class: "navbar-toggle collapsed", data: { toggle: "collapse", target: "#main-navbar" }, "aria-expanded": false }
+        %span.sr-only Navegação
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+        = link_to "Home", root_path, class: "navbar-brand"
+    %div{ class: "collapse navbar-collapse", id: "main-navbar" }
+      %ul{ class: "nav navbar-nav" }
+        %li= link_to "Home", root_path
+        %li.dropdown
+          %a{ href: "#", class: "dropdown-toggle", data: { toggle: "dropdown" }, role: "button", "aria-haspopup": true, "aria-expanded": false }
+            Trip
+            %span.caret
+            %ul.dropdown-menu
+              %li= link_to "Friends", friends_path
+              %li= link_to "Trips", trips_path

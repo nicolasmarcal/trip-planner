@@ -1,0 +1,21 @@
+%h1 Friends
+.btn-group
+  = link_to "Add friend", new_friend_path, class: "btn btn-success"
+- if @friends.present?
+  .row
+    .col-md-4
+      %table{ class: "table table-striped" }
+        %thead
+          %tr
+            %td Friend
+            %td Actions
+        %tbody
+          - @friends.each do |friend|
+            %tr
+              %td= friend.name
+              %td
+                = link_to edit_friend_path(friend), role: "button", class: "btn btn-primary" do
+                  %i.glyphicon.glyphicon-pencil
+                  Edit
+- else
+  %p No friend registered.

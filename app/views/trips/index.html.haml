@@ -1,0 +1,27 @@
+%h1 Trips
+.btn-group
+  = link_to "Add trip", new_trip_path, class: "btn btn-success"
+- if @trips.present?
+  .row
+    .col-md-4
+      %table{ class: "table table-striped" }
+        %thead
+          %tr
+            %td Destination
+            %td Start at
+            %td End at
+            %td Friends count
+            %td Actions
+        %tbody
+          - @trips.each do |trip|
+            %tr
+              %td= link_to(trip.destiny_city_name, trip)
+              %td= trip.start_date
+              %td= trip.end_date
+              %td= trip.friends.count
+              %td
+                = link_to edit_trip_path(trip), role: "button", class: "btn btn-primary" do
+                  %i.glyphicon
+                  Edit
+- else
+  %p No trip registered.
